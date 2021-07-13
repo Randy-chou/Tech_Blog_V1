@@ -8,12 +8,17 @@ router.get('/', async (req, res) => {
                 {
                     model: Comment
                 },
+                {
+                    model: User
+                }
             ],
         });
 
         const posts = postData.map((post) =>
             post.get({ plain: true })
         );
+
+        console.log(posts);
 
         res.render('all', {posts});
     } catch (err) {
