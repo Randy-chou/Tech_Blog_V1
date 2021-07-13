@@ -1,23 +1,23 @@
-const { Category } = require('../models');
+const { User } = require('../models');
 
-const categoryData = [
+const userData = [
   {
-    category_name: 'Shirts',
+    name: 'Bob',
+    password: "Banana"
   },
   {
-    category_name: 'Shorts',
+    name: 'Joe',
+    password: "OpenNowPlease"
   },
   {
-    category_name: 'Music',
-  },
-  {
-    category_name: 'Hats',
-  },
-  {
-    category_name: 'Shoes',
+    name: 'Carol',
+    password: "March242010"
   },
 ];
 
-const seedCategories = () => Category.bulkCreate(categoryData);
+const seedCategories = () => User.bulkCreate(userData, {
+  individualHooks: true,
+  returning: true,
+});
 
 module.exports = seedCategories;
