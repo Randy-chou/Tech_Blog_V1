@@ -10,18 +10,21 @@
     {{#each comments as |comment|}}
     {{> comment-details}}
     {{/each}}
-
+    
+    {{#if loggedIn}}
     <div class="card mb-3 border border-success border-3">
-        <form class="p-3">
+        <form class="post-form p-3">
             <div class="mb-3">
                 <label for="comment-box" class="form-label">Comment</label>
                 <textarea class="form-control" id="comment-box" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button id="add-button" value={{id}} type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-
-    <button type="button" class="btn btn-secondary p-2 px-3 mx-auto fs-4">+ Comment</button>
+    {{/if}}
+    
 </div>
 
+{{#if loggedIn}}
 <script src="/js/comment.js"></script>
+{{/if}}

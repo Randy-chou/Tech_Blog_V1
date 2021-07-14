@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Post, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth ,async (req, res) => {
+router.get('/',async (req, res) => {
     try {
         const postData = await Post.findAll({
             include: [
@@ -84,11 +84,11 @@ router.get('/dash', withAuth , async (req, res) => {
     }
 });
 
-router.get('/dash/new', async (req, res) => {
+router.get('/dash/new', withAuth , async (req, res) => {
     res.render('newPost', {loggedIn: req.session.loggedIn});
 });
 
-router.get('/dash/edit/:id', async (req, res) => {
+router.get('/dash/edit/:id', withAuth , async (req, res) => {
     try {
         const commentData = await Post.findByPk(req.params.id, {
             include: [
