@@ -1,0 +1,23 @@
+<nav class="nav nav-pills p-1 pb-4 ps-5 bg-success mb-3">
+    <li class="nav-item bg-light mx-2 p-1 rounded-3">
+        <a class="nav-link text-dark fs-3 fw-bolder">The Tech Blog</a>
+    </li>
+</nav>
+
+<div class="container d-flex flex-column justify-content-center">
+    <div class="card mb-3 border border-success border-3">
+        <form class="post-form p-3">
+            <div class="mb-3">
+                <label for="title-post" class="form-label">Title</label>
+                <input type="title" class="form-control" id="title-post" value="{{title}}">
+            </div>
+            <div class="mb-3">
+                <label for="content-post" class="form-label">Content</label>
+                <textarea class="form-control" id="content-post" rows="3">{{content}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Post</button>
+        </form>
+    </div>
+</div>
+
+<script src="/js/new-post.js"></script>
