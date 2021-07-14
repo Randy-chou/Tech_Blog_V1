@@ -5,6 +5,7 @@ const sequelize = require('./config/connection');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -12,11 +13,14 @@ const PORT = process.env.PORT || 3001;
 // Incorporate the custom helper methods
 const hbs = exphbs.create({ helpers });
 
-// Set up sessions
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.DB_S,
+  cookie: {},
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
