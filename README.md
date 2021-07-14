@@ -7,7 +7,7 @@ This website is a basic forum or blogging application that allows people to make
 - [Credits](#credits)
 - [License](#license)
 ## Installation
-Deployed Link:
+Deployed Link: https://secure-fortress-85832.herokuapp.com/
 ## Usage
 ![alt text](assets/capture.png)
 Sign up an account or log into an existing account on the webpage, then use the dashboard to make, edit, or delete posts. Go the home page to comment on posts.
